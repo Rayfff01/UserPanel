@@ -13,6 +13,7 @@ public class Runner {
             if(a.equals("1")){
                 break;
             }
+
             System.out.println(a);
         }
     }
