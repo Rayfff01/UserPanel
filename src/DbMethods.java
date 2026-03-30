@@ -23,4 +23,10 @@ public class DbMethods {
             System.out.println("Проблемы с подключением...");
         }
     }
+    public void viewAllUsers(){
+        for (int i = 1; i < users.size(); i++) {
+            User user = users.get(i);
+            System.out.println(user.ID + " " + user.login + " " + user.password);
+        }
+    }
 }

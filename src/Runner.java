@@ -15,9 +15,10 @@ public class Runner {
             String a = scanner.nextLine();
             if(a.equals("1")){
                 break;
+            } else if (a.equals("2")) {
+                methods.viewAllUsers();
             }
 
-            System.out.println(a);
         }
     }
 }
