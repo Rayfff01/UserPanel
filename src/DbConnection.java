@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class DbConnection {
     private final static String url = "jdbc:postgresql://localhost:5432/Test";
     private final static String user = "postgres";
@@ -14,4 +17,5 @@ public class DbConnection {
     public static String getPassword() {
         return password;
     }
+
 }
