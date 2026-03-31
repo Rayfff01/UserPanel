@@ -26,7 +26,7 @@ public class Runner {
                 String password = scanner.nextLine();
                 methods.createNewUser(login, password);
             }
-
+            System.out.println();
         }
     }
 }
