@@ -50,7 +50,7 @@ public class DbMethods {
     public void updateUserLogin(int id, String newLogin){
         User user = users.get(id-1);
         user.login = newLogin;
-        users.set(id, user);
+        users.set(id-1, user);
         try(Connection con = DriverManager.getConnection(DbConnection.getUrl(), DbConnection.getUser(), DbConnection.getPassword())){
             PreparedStatement ps = con.prepareStatement("update users set login = ? where id = ?");
             ps.setString(1, newLogin);
