@@ -28,4 +28,23 @@ public class DbMethods {
             System.out.println(user.ID + " " + user.login + " " + user.password);
         }
     }
+    public void createNewUser(String login, String password){
+        User user = new User();
+        user.ID = users.size()+1;
+        user.login = login;
+        user.password = password;
+        users.add(user);
+        try(Connection con = DriverManager.getConnection(DbConnection.getUrl(), DbConnection.getUser(), DbConnection.getPassword())){
+            PreparedStatement ps = con.prepareStatement("insert into users (id, login, password) values (?, ?, ?)");
+            ps.setInt(1,user.ID);
+            ps.setString(2,user.login);
+            ps.setString(3, user.password);
+            ps.executeUpdate();
+            System.out.println("Новый пользователь успешно добавлен!");
+            ps.close();
+        }
+        catch (SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+    }
 }
