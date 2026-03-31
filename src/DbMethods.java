@@ -81,7 +81,21 @@ public class DbMethods {
 
     }
     public void updateUserLoginAndPassword(int id, String newLogin, String newPassword){
-        User user = users.get(id);
-
+        User user = users.get(id-1);
+        user.login = newLogin;
+        user.password = newPassword;
+        users.set(id-1, user);
+        try(Connection con = DriverManager.getConnection(DbConnection.getUrl(), DbConnection.getUser(), DbConnection.getPassword())){
+            PreparedStatement ps = con.prepareStatement("update users set login = ?, password = ? where id = ?");
+            ps.setString(1, newLogin);
+            ps.setString(2, newPassword);
+            ps.setInt(3, id);
+            ps.executeUpdate();
+            System.out.println("Данные изменены!");
+            ps.close();
+        }
+        catch (SQLException ex){
+            System.out.println(ex.getMessage());
+        }
     }
 }

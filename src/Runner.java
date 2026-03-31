@@ -41,7 +41,14 @@ public class Runner {
                     String newPassword = scanner.nextLine();
                     methods.updateUserPassword(userID, newPassword);
                 } else if (parameter.equals("3")) {
-                    
+                    System.out.println("Введите id пользователя, у которого хотите изменить данные: ");
+                    int userID = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Введите новый логин для пользователя: ");
+                    String newLogin = scanner.nextLine();
+                    System.out.println("Введите новый пароль для пользователя: ");
+                    String newPassword = scanner.nextLine();
+                    methods.updateUserLoginAndPassword(userID, newLogin, newPassword);
                 }
             } else if (a.equals("9")) {
                 break;
