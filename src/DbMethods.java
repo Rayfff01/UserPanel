@@ -98,4 +98,18 @@ public class DbMethods {
             System.out.println(ex.getMessage());
         }
     }
+    public void DeleteUser(int id){
+        User user = users.get(id-1);
+        try(Connection con = DriverManager.getConnection(DbConnection.getUrl(), DbConnection.getUser(), DbConnection.getPassword())){
+            PreparedStatement ps = con.prepareStatement("delete from users where id = ?");
+            ps.setInt(1, id);
+            ps.executeUpdate();
+            System.out.println("Пользователь удален!");
+            ps.close();
+        }
+        catch (SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+        users.remove(user);
+    }
 }

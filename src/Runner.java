@@ -50,6 +50,11 @@ public class Runner {
                     String newPassword = scanner.nextLine();
                     methods.updateUserLoginAndPassword(userID, newLogin, newPassword);
                 }
+            } else if (a.equals("5")) {
+                System.out.println("Введите id пользователя, которого хотите удалить: ");
+                int userID = scanner.nextInt();
+                scanner.nextLine();
+                methods.DeleteUser(userID);
             } else if (a.equals("9")) {
                 break;
             }
@@ -63,6 +68,7 @@ public class Runner {
                 2 - вывод списка пользователей
                 3 - добавление нового пользователя
                 4 - изменение данных пользователя
+                5 - удаление пользователя
                 ...
                 9 - завершение сеанса""");
     }
