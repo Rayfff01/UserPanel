@@ -3,20 +3,14 @@ import java.util.Scanner;
 public class Runner {
     public static void main(String[] args) {
         DbMethods methods = new DbMethods();
-
-        System.out.println("""
-                Типа приветствие!
-                Список команд: 
-                1 - завершение сеанса
-                2 - вывод списка пользователей
-                3 - добавление нового пользователя""");
+        showComand();
         Scanner scanner = new Scanner(System.in);
 
         while(true){
             System.out.println("Введите команду: ");
             String a = scanner.nextLine();
             if(a.equals("1")){
-                break;
+                showComand();
             } else if (a.equals("2")) {
                 methods.viewAllUsers();
             } else if (a.equals("3")) {
@@ -25,8 +19,19 @@ public class Runner {
                 System.out.println("Введите пароль для нового пользователя: ");
                 String password = scanner.nextLine();
                 methods.createNewUser(login, password);
+            } else if (a.equals("9")) {
+                break;
             }
             System.out.println();
         }
+    }
+    public static void showComand(){
+        System.out.println("""
+                Список команд: 
+                1 - вывод списка команд
+                2 - вывод списка пользователей
+                3 - добавление нового пользователя
+                ***
+                9 - завершение сеанса""");
     }
 }
