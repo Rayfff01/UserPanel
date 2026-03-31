@@ -34,7 +34,12 @@ public class Runner {
                     String newLogin = scanner.nextLine();
                     methods.updateUserLogin(userID, newLogin);
                 } else if (parameter.equals("2")) {
-                    
+                    System.out.println("Введите id пользователя, у которого хотите изменить данные: ");
+                    int userID = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Введите новый пароль для пользователя: ");
+                    String newPassword = scanner.nextLine();
+                    methods.updateUserPassword(userID, newPassword);
                 } else if (parameter.equals("3")) {
                     
                 }
