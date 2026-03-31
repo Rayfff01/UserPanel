@@ -24,8 +24,7 @@ public class DbMethods {
         }
     }
     public void viewAllUsers(){
-        for (int i = 0; i < users.size(); i++) {
-            User user = users.get(i);
+        for (User user : users) {
             System.out.println(user.ID + " " + user.login + " " + user.password);
         }
     }
